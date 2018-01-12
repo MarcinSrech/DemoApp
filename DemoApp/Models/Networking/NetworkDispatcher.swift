@@ -36,23 +36,25 @@ class NetworkDispatcher: Dispatcher {
     }
     
     private func prepareURLRequest(for request: Request) throws -> URLRequest {
-        let fullURL = "\(environment.host)"
-        var urlRequest = URLRequest(url: URL(string: fullURL)!)
+        let fullURL = "\(environment.host)\(request.path)"
+        let urlRequest = NSMutableURLRequest(url: URL(string: fullURL)!)
         
         switch request.parameters {
         case .body(let params):
-            if let params = params as? [String: String] {
+            if let params = params {
                 urlRequest.httpBody = try JSONSerialization.data(withJSONObject: params, options: .init(rawValue: 0))
             } else {
                 throw NetworkErrors.badInput
             }
         case .url(let params):
             if let params = params as? [String: String] {
-                var queryParams  = params.map({ URLQueryItem(name: $0.key, value: $0.value) })
+                let queryParams = params.map({ (element) -> URLQueryItem in
+                    return URLQueryItem(name: element.key, value: element.value)
+                })
+                
                 guard var components = URLComponents(string: fullURL) else {
                     throw NetworkErrors.badInput
                 }
-                components.queryItems?.forEach({ queryParams.append($0) })
                 components.queryItems = queryParams
                 urlRequest.url = components.url
             } else {
@@ -60,13 +62,12 @@ class NetworkDispatcher: Dispatcher {
             }
         }
         
-        
         environment.headers.forEach({ urlRequest.addValue($0.value as! String, forHTTPHeaderField: $0.key) })
-        request.headers?.forEach({ urlRequest.addValue($0.value as! String, forHTTPHeaderField: $0.key) })
+        request.headers?.forEach({ urlRequest.setValue($0.value as? String, forHTTPHeaderField: $0.key) })
         
         urlRequest.httpMethod = request.method.rawValue
         
-        return urlRequest
+        return urlRequest as URLRequest
     }
     
 }
