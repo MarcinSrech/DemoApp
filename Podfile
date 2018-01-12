@@ -12,6 +12,7 @@ target 'DemoApp' do
     pod 'MagicalRecord'
     pod 'HydraAsync', '~> 1.0.2'
     pod 'SwiftyJSON'
+    pod 'Fuzi', '~> 1.0.0'
     pod 'Alamofire', '~> 4.5'
     pod 'AlamofireNetworkActivityLogger', '~> 2.0'
 
