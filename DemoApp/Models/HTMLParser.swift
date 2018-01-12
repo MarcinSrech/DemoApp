@@ -20,28 +20,23 @@ class HTMLParser {
                 let results = element.css(".profileMain").filter({ $0.attr("class") ?? "" == "profileMain inactive " })
                 
                 results.forEach {
+                    guard let profileTitle = $0.css(".profileMainTitle").first,
+                        let link = profileTitle.firstChild(css: "a, link"),
+                        let profileNick = $0.css(".profileMainNick").first else {
+                            return
+                    }
+                    
                     var profile = [String: Any]()
-                    if let profileTitle = $0.css(".profileMainTitle").first {
-                        profile["title"] = profileTitle.stringValue
-                        if let link = profileTitle.firstChild(css: "a, link") {
-                            profile["link"] = link["href"]
-                        }
-                    }
-                    
-                    if let profileNick = $0.css(".profileMainNick").first {
-                        profile["teacherNick"] = profileNick.stringValue
-                    }
-                    
-                    if profile.count > 0 {
-                        profiles.append(profile)
-                    }
+                    profile["title"] = profileTitle.stringValue
+                    profile["link"] = link["href"]
+                    profile["teacherNick"] = profileNick.stringValue
+                    profiles.append(profile)
                 }
             }
         } catch let error {
             print(error)
         }
         
-
         return profiles
     }
 }
