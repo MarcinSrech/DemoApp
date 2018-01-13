@@ -23,7 +23,8 @@ class APIClient {
     static let shared = APIClient()
     private init() {
         let headers = ["Content-Type": "text/html"]
-        environment = Environment(name: "Dev", host: "https://buddyschool.com/", headers: headers, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData)
+        let appSettings = AppSettings()
+        environment = Environment(name: appSettings.environment, host: appSettings.baseUrl, headers: headers, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData)
         dispatcher = NetworkDispatcher(environment: environment)
         context.automaticallyMergesChangesFromParent = true
     }
