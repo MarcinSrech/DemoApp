@@ -28,9 +28,9 @@ class HTMLParser {
                     }
                     
                     var profile = [String: Any]()
-                    profile["title"] = profileTitle.stringValue
+                    profile["title"] = profileTitle.stringValue.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                     profile["link"] = link["href"]
-                    profile["teacherNick"] = profileNick.stringValue
+                    profile["teacherNick"] = profileNick.stringValue.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
                     profile["keyword"] = keyword
                     profiles.append(profile)
                 }

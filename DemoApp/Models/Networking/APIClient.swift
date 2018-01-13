@@ -47,6 +47,9 @@ class APIClient {
                 
                 resolve(Void())
             }).catch({ (error) in
+                let newContext = NSManagedObjectContext.mr_context(withParent: self.context)
+                CDProfile.mr_truncateAll(in: newContext)
+                newContext.mr_saveToPersistentStoreAndWait()
                 reject(error)
             }) 
         })
