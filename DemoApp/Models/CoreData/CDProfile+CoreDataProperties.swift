@@ -20,5 +20,5 @@ extension CDProfile {
     @NSManaged public var title: String?
     @NSManaged public var teacherNick: String?
     @NSManaged public var link: String?
-
+    @NSManaged public var keyword: String?
 }

@@ -15,6 +15,7 @@ class HTMLParser {
         
         do {
             let doc = try HTMLDocument(string: html, encoding: String.Encoding.utf8)
+            let keyword = doc.css("#keyword").first?.attr("value") ?? ""
             let categorySection = doc.css("#categoryPage")
             if let element = categorySection.first {
                 let results = element.css(".profileMain").filter({ $0.attr("class") ?? "" == "profileMain inactive " })
@@ -30,6 +31,7 @@ class HTMLParser {
                     profile["title"] = profileTitle.stringValue
                     profile["link"] = link["href"]
                     profile["teacherNick"] = profileNick.stringValue
+                    profile["keyword"] = keyword
                     profiles.append(profile)
                 }
             }
