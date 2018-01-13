@@ -19,7 +19,7 @@ class CDProfileDataProvider: DataProvider {
     //MARK: - Methods
     
     init() {
-        loadAllObjects()
+        profilesFromCoreData.value = [NSManagedObject]()
     }
     
     func fetchObservableData() -> Observable<[NSManagedObject]> {
@@ -35,7 +35,11 @@ class CDProfileDataProvider: DataProvider {
     }
     
     func findObjects(by key: String, value: String) {
-        profilesFromCoreData.value = CDProfile.mr_find(byAttribute: key, withValue: value) ?? []
+        if value == "" {
+            profilesFromCoreData.value = []
+        } else {
+            profilesFromCoreData.value = CDProfile.mr_find(byAttribute: key, withValue: value) ?? []
+        }
     }
     
     func findObjects(by predicate: NSPredicate) {
