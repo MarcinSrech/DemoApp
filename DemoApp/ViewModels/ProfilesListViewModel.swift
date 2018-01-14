@@ -12,8 +12,9 @@ import RxSwift
 class ProfilesListViewModel {
     
     //MARK: - Properties
-    private let title = String.localized("ProfilesVC_title")
+    let title = String.localized("ProfilesVC_title")
     private var profiles = Variable<[CDProfile]>([])
+    private var errorAppears = Variable<Bool>(false)
     private var pofilesDataProvider: CDProfileDataProvider
     private var disposeBag = DisposeBag()
     
@@ -32,21 +33,24 @@ class ProfilesListViewModel {
             .addDisposableTo(disposeBag)
     }
     
-    public func getTitle() -> String {
-        return title
-    }
-    
     public func getProfiles() -> Variable<[CDProfile]> {
         return profiles
+    }
+    
+    public func getErrorAppears() -> Variable<Bool> {
+        return errorAppears
     }
 
     public func findProfiles(by keywords: String?) {
         if keywords == nil || keywords?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines) == "" {
-            self.pofilesDataProvider.findObjects(by: "keyword", value: keywords ?? "")
+           pofilesDataProvider.findObjects(by: "keyword", value: keywords ?? "")
         } else {
-            APIClient.shared.findProducts(by: keywords!).always {
-                self.pofilesDataProvider.findObjects(by: "keyword", value: keywords!)
-            }
+            APIClient.shared.findProducts(by: keywords!).then { [weak self] in
+                self?.pofilesDataProvider.findObjects(by: "keyword", value: keywords!)
+                }.catch({ [weak self] (error) in
+                    self?.pofilesDataProvider.findObjects(by: "keyword", value: "")
+                    self?.errorAppears.value = true
+                })
         }
     }
 }

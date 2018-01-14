@@ -6,5 +6,8 @@
   Copyright © 2018 Marcin Srech. All rights reserved.
 */
 
+"Global_DefaultAlertTitle" = "Ups..";
+"Global_DefaultAlertBody" = "Co poszo nie tak";
+"Global_AlertOk" = "OK";
 
 "ProfilesVC_title" = "Profile";

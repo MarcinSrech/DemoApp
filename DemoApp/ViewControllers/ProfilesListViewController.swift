@@ -35,11 +35,12 @@ class ProfilesListViewController: UIViewController {
         
         configureTableDataSource()
         configureSearchResults()
+        configureAlertViewWhenErrorAppears()
     }
     
     //MARK: - Prepare UI
     private func prepareNavigation() {
-        title = profilesListViewModel?.getTitle()
+        title = profilesListViewModel?.title
     }
     
     private func prepareTableView() {
@@ -91,5 +92,26 @@ class ProfilesListViewController: UIViewController {
             .subscribe({ [weak self] (event) in
                 self?.profilesListViewModel?.findProfiles(by: nil)
             })
+        
     }
+    
+    private func configureAlertViewWhenErrorAppears() {
+        let observableErrorApears = profilesListViewModel!.getErrorAppears().asObservable()
+        observableErrorApears
+            .subscribe { [weak self] (event) in
+                if event.element ?? false {
+                    self?.showAlertController()
+                }
+            }
+            .addDisposableTo(disposeBag)
+    }
+    
+    private func showAlertController() {
+        let alertController = UIAlertController(title: String.localized("Global_DefaultAlertTitle"), message: String.localized("Global_DefaultAlertBody"), preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction(title: String.localized("Global_AlertOk"), style: UIAlertActionStyle.default, handler: nil)
+        alertController.addAction(okAction)
+        present(alertController, animated: true, completion: nil)
+    }
+
+    
 }

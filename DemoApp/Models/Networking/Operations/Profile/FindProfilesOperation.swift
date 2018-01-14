@@ -30,8 +30,8 @@ class FindProfilesOperation<JSON>: Operation {
                         break
                     case .data(let data):
                         resolve(data)
-                    case .error( _, let error):
-                        reject(error!)
+                    case .error(let statusCode, let error):
+                        reject(error ?? NSError(domain: "NetworkError", code: statusCode ?? 0, userInfo: nil))
                     }
                     
                 }).catch(reject)

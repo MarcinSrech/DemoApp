@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MagicalRecord.setupAutoMigratingCoreDataStack()
         
         NetworkActivityLogger.shared.startLogging()
-        NetworkActivityLogger.shared.level = .debug
+        NetworkActivityLogger.shared.level = .info
         
         return true
     }
