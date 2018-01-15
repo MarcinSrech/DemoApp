@@ -20,4 +20,8 @@ class ProfileCellViewModel {
     init(profile: CDProfile) {
         self.profile = profile
     }
+    
+    public func getLink() -> String {
+        return profile.link ?? ""
+    }
 }

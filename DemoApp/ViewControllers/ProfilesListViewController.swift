@@ -34,6 +34,7 @@ class ProfilesListViewController: UIViewController {
         prepareSearchController()
         
         configureTableDataSource()
+        configureTableViewCellWhenTapped()
         configureSearchResults()
         configureAlertViewWhenErrorAppears()
     }
@@ -72,6 +73,15 @@ class ProfilesListViewController: UIViewController {
                 cell.setup(viewModel: profileViewModel)
                 return cell
             }
+            .addDisposableTo(disposeBag)
+    }
+    
+    private func configureTableViewCellWhenTapped() {
+        tableView.rx.itemSelected
+            .subscribe(onNext: { [weak self] indexPath in
+                self?.tableView.deselectRow(at: indexPath, animated: true)
+                self?.profilesListViewModel?.selectProfile(at: indexPath.row)
+            })
             .addDisposableTo(disposeBag)
     }
     

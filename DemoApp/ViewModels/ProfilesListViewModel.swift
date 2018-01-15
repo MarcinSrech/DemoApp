@@ -56,11 +56,28 @@ class ProfilesListViewModel {
         }
     }
     
+    public func selectProfile(at index: Int) {
+        let profileCellViewModel = profiles.value[index]
+
+        if let url = getURL(for: profileCellViewModel) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+    
     //MARK: - Helpers
     private func viewModels(for profiles: [CDProfile]) -> [ProfileCellViewModel] {
         var viewModels = [ProfileCellViewModel]()
         profiles.forEach({ viewModels.append(ProfileCellViewModel(profile: $0)) })
         
         return viewModels
+    }
+    
+    private func getURL(for viewModel: ProfileCellViewModel) -> URL? {
+        let appSettings = AppSettings.init()
+        var link = viewModel.getLink()
+        link.remove(at: link.startIndex)
+        let urlString = appSettings.baseUrl + link
+        
+        return URL(string: urlString)
     }
 }
