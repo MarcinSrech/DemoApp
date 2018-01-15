@@ -13,7 +13,6 @@
 		87E0C7B62008E18E00DD86A7 /* DemoApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 87E0C7B42008E18E00DD86A7 /* DemoApp.xcdatamodeld */; };
 		87E0C7B82008E18E00DD86A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87E0C7B72008E18E00DD86A7 /* Assets.xcassets */; };
 		87E0C7BB2008E18E00DD86A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87E0C7B92008E18E00DD86A7 /* LaunchScreen.storyboard */; };
-		87E0C7C62008E18E00DD86A7 /* DemoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E0C7C52008E18E00DD86A7 /* DemoAppTests.swift */; };
 		87E0C7D12008E18E00DD86A7 /* DemoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E0C7D02008E18E00DD86A7 /* DemoAppUITests.swift */; };
 		87E0C7E52008E4AD00DD86A7 /* ProfilesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E0C7E32008E4AD00DD86A7 /* ProfilesListViewController.swift */; };
 		87E0C7E62008E4AD00DD86A7 /* ProfilesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87E0C7E42008E4AD00DD86A7 /* ProfilesListViewController.xib */; };
@@ -38,6 +37,9 @@
 		87E0C817200A453E00DD86A7 /* CDProfilesDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E0C816200A453E00DD86A7 /* CDProfilesDataProvider.swift */; };
 		87E0C81B200BD85100DD86A7 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E0C81A200BD85100DD86A7 /* ProfileTableViewCell.swift */; };
 		87E0C81D200BD8A600DD86A7 /* ProfileCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E0C81C200BD8A600DD86A7 /* ProfileCellViewModel.swift */; };
+		87E0C81F200CF51F00DD86A7 /* AppSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E0C81E200CF51F00DD86A7 /* AppSettingsTests.swift */; };
+		87E0C820200CF58900DD86A7 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E0C81220096AC400DD86A7 /* AppSettings.swift */; };
+		87E0C821200CF73E00DD86A7 /* AppSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87E0C8102009696500DD86A7 /* AppSettings.plist */; };
 		A22FCB1E833FF76C8933A576 /* Pods_DemoAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1207497EE89FB0CAD2AB165B /* Pods_DemoAppUITests.framework */; };
 		C026C402B306739556D3ED71 /* Pods_DemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D5B1829542D2F874A93EB1 /* Pods_DemoApp.framework */; };
 /* End PBXBuildFile section */
@@ -73,7 +75,6 @@
 		87E0C7BA2008E18E00DD86A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87E0C7BC2008E18E00DD86A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87E0C7C12008E18E00DD86A7 /* DemoAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		87E0C7C52008E18E00DD86A7 /* DemoAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAppTests.swift; sourceTree = "<group>"; };
 		87E0C7C72008E18E00DD86A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87E0C7CC2008E18E00DD86A7 /* DemoAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DemoAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87E0C7D02008E18E00DD86A7 /* DemoAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoAppUITests.swift; sourceTree = "<group>"; };
@@ -104,6 +105,7 @@
 		87E0C816200A453E00DD86A7 /* CDProfilesDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDProfilesDataProvider.swift; sourceTree = "<group>"; };
 		87E0C81A200BD85100DD86A7 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		87E0C81C200BD8A600DD86A7 /* ProfileCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCellViewModel.swift; sourceTree = "<group>"; };
+		87E0C81E200CF51F00DD86A7 /* AppSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsTests.swift; sourceTree = "<group>"; };
 		9352446D3798A5556281D86F /* Pods-DemoAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DemoAppTests/Pods-DemoAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		97D5B1829542D2F874A93EB1 /* Pods_DemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1CE5CD5A2C0954014537A7C /* Pods-DemoAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoAppUITests/Pods-DemoAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -188,8 +190,8 @@
 		87E0C7C42008E18E00DD86A7 /* DemoAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				87E0C7C52008E18E00DD86A7 /* DemoAppTests.swift */,
 				87E0C7C72008E18E00DD86A7 /* Info.plist */,
+				87E0C81E200CF51F00DD86A7 /* AppSettingsTests.swift */,
 			);
 			path = DemoAppTests;
 			sourceTree = "<group>";
@@ -455,6 +457,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87E0C821200CF73E00DD86A7 /* AppSettings.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,9 +623,26 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-DemoAppTests/Pods-DemoAppTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityLogger/AlamofireNetworkActivityLogger.framework",
+				"${BUILT_PRODUCTS_DIR}/Fuzi/Fuzi.framework",
+				"${BUILT_PRODUCTS_DIR}/HydraAsync/Hydra.framework",
+				"${BUILT_PRODUCTS_DIR}/MagicalRecord/MagicalRecord.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireNetworkActivityLogger.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fuzi.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hydra.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MagicalRecord.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -665,7 +685,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87E0C7C62008E18E00DD86A7 /* DemoAppTests.swift in Sources */,
+				87E0C81F200CF51F00DD86A7 /* AppSettingsTests.swift in Sources */,
+				87E0C820200CF58900DD86A7 /* AppSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
