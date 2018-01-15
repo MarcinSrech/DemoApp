@@ -67,12 +67,9 @@ class ProfilesListViewController: UIViewController {
     //MARK: - Configure Rx
     private func configureTableDataSource() {
         let observableProfiles = profilesListViewModel!.getProfiles().asObservable()
-        observableProfiles.bind(to: tableView.rx.items) { (tableView, row, profile) in
-                let cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: self.cellIdentifier)
-                cell.textLabel?.text = profile.teacherNick!
-                cell.detailTextLabel?.text = profile.title!
-                cell.detailTextLabel?.numberOfLines = 0
-                cell.accessoryType = .disclosureIndicator
+        observableProfiles.bind(to: tableView.rx.items) { (tableView, row, profileViewModel) in
+                let cell = ProfileTableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: self.cellIdentifier)
+                cell.setup(viewModel: profileViewModel)
                 return cell
             }
             .addDisposableTo(disposeBag)
@@ -80,7 +77,7 @@ class ProfilesListViewController: UIViewController {
     
     private func configureSearchResults() {
         _ = searchController.searchBar.rx.text.orEmpty
-            .debounce(1, scheduler: MainScheduler.instance)
+            .debounce(0.5, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .observeOn(MainScheduler.instance)
             .subscribe({ [weak self] (event) in

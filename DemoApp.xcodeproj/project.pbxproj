@@ -36,6 +36,8 @@
 		87E0C81320096AC400DD86A7 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E0C81220096AC400DD86A7 /* AppSettings.swift */; };
 		87E0C815200A297D00DD86A7 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E0C814200A297D00DD86A7 /* DataProvider.swift */; };
 		87E0C817200A453E00DD86A7 /* CDProfilesDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E0C816200A453E00DD86A7 /* CDProfilesDataProvider.swift */; };
+		87E0C81B200BD85100DD86A7 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E0C81A200BD85100DD86A7 /* ProfileTableViewCell.swift */; };
+		87E0C81D200BD8A600DD86A7 /* ProfileCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E0C81C200BD8A600DD86A7 /* ProfileCellViewModel.swift */; };
 		A22FCB1E833FF76C8933A576 /* Pods_DemoAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1207497EE89FB0CAD2AB165B /* Pods_DemoAppUITests.framework */; };
 		C026C402B306739556D3ED71 /* Pods_DemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D5B1829542D2F874A93EB1 /* Pods_DemoApp.framework */; };
 /* End PBXBuildFile section */
@@ -100,6 +102,8 @@
 		87E0C81220096AC400DD86A7 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		87E0C814200A297D00DD86A7 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		87E0C816200A453E00DD86A7 /* CDProfilesDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDProfilesDataProvider.swift; sourceTree = "<group>"; };
+		87E0C81A200BD85100DD86A7 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		87E0C81C200BD8A600DD86A7 /* ProfileCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCellViewModel.swift; sourceTree = "<group>"; };
 		9352446D3798A5556281D86F /* Pods-DemoAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DemoAppTests/Pods-DemoAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		97D5B1829542D2F874A93EB1 /* Pods_DemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1CE5CD5A2C0954014537A7C /* Pods-DemoAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoAppUITests/Pods-DemoAppUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -172,6 +176,7 @@
 		87E0C7AC2008E18D00DD86A7 /* DemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				87E0C819200BD79100DD86A7 /* Cells */,
 				87E0C7DE2008E19F00DD86A7 /* ViewControllers */,
 				87E0C7E02008E1C200DD86A7 /* ViewModels */,
 				87E0C7DF2008E1B400DD86A7 /* Models */,
@@ -223,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				87E0C7E72008E4F600DD86A7 /* ProfilesListViewModel.swift */,
+				87E0C81C200BD8A600DD86A7 /* ProfileCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -299,6 +305,14 @@
 				87E0C8082008EF1000DD86A7 /* FindProfilesOperation.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		87E0C819200BD79100DD86A7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				87E0C81A200BD85100DD86A7 /* ProfileTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		DB8098D934522FCD01EAAD6C /* Frameworks */ = {
@@ -634,9 +648,11 @@
 				87E0C7FA2008E6E400DD86A7 /* Response.swift in Sources */,
 				87E0C80F2009625300DD86A7 /* CDProfile+CoreDataProperties.swift in Sources */,
 				87E0C7F82008E6C800DD86A7 /* Request.swift in Sources */,
+				87E0C81D200BD8A600DD86A7 /* ProfileCellViewModel.swift in Sources */,
 				87E0C7EC2008E54000DD86A7 /* String+localized.swift in Sources */,
 				87E0C80B2009572900DD86A7 /* HTMLParser.swift in Sources */,
 				87E0C7E52008E4AD00DD86A7 /* ProfilesListViewController.swift in Sources */,
+				87E0C81B200BD85100DD86A7 /* ProfileTableViewCell.swift in Sources */,
 				87E0C7F02008E60200DD86A7 /* Dispatcher.swift in Sources */,
 				87E0C81320096AC400DD86A7 /* AppSettings.swift in Sources */,
 				87E0C7F42008E67B00DD86A7 /* NetworkDispatcher.swift in Sources */,

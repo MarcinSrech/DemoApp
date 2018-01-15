@@ -13,7 +13,7 @@ class ProfilesListViewModel {
     
     //MARK: - Properties
     let title = String.localized("ProfilesVC_title")
-    private var profiles = Variable<[CDProfile]>([])
+    private var profiles = Variable<[ProfileCellViewModel]>([])
     private var errorAppears = Variable<Bool>(false)
     private var pofilesDataProvider: CDProfileDataProvider
     private var disposeBag = DisposeBag()
@@ -26,14 +26,16 @@ class ProfilesListViewModel {
     
     private func fetchProductsAndUpdateObservableProducts() {
         pofilesDataProvider.fetchObservableData()
-            .map({ $0})
-            .subscribe({ (profiles) in
-                self.profiles.value = profiles.element as? [CDProfile] ?? []
+            .map({ [weak self] profiles in
+                return self?.viewModels(for: profiles as! [CDProfile])
+            })
+            .subscribe({ [weak self] (profiles) in
+                self?.profiles.value = profiles.element as? [ProfileCellViewModel] ?? []
             })
             .addDisposableTo(disposeBag)
     }
     
-    public func getProfiles() -> Variable<[CDProfile]> {
+    public func getProfiles() -> Variable<[ProfileCellViewModel]> {
         return profiles
     }
     
@@ -52,5 +54,13 @@ class ProfilesListViewModel {
                     self?.errorAppears.value = true
                 })
         }
+    }
+    
+    //MARK: - Helpers
+    private func viewModels(for profiles: [CDProfile]) -> [ProfileCellViewModel] {
+        var viewModels = [ProfileCellViewModel]()
+        profiles.forEach({ viewModels.append(ProfileCellViewModel(profile: $0)) })
+        
+        return viewModels
     }
 }
