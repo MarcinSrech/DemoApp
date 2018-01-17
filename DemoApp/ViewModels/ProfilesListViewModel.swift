@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import CoreData
 
 class ProfilesListViewModel {
     
@@ -15,19 +16,19 @@ class ProfilesListViewModel {
     let title = String.localized("ProfilesVC_title")
     private var profiles = Variable<[ProfileCellViewModel]>([])
     private var errorAppears = Variable<Bool>(false)
-    private var pofilesDataProvider: CDProfileDataProvider
+    private var pofilesDataProvider: DataProvider
     private var disposeBag = DisposeBag()
     
     //MARK: - Methods
     init(dataProvider: DataProvider) {
-        self.pofilesDataProvider = dataProvider as! CDProfileDataProvider
+        self.pofilesDataProvider = dataProvider
         fetchProductsAndUpdateObservableProducts()
     }
     
     private func fetchProductsAndUpdateObservableProducts() {
         pofilesDataProvider.fetchObservableData()
             .map({ [weak self] profiles in
-                return self?.viewModels(for: profiles as! [CDProfile])
+                return self?.viewModels(for: profiles)
             })
             .subscribe({ [weak self] (profiles) in
                 self?.profiles.value = profiles.element as? [ProfileCellViewModel] ?? []
@@ -65,9 +66,9 @@ class ProfilesListViewModel {
     }
     
     //MARK: - Helpers
-    private func viewModels(for profiles: [CDProfile]) -> [ProfileCellViewModel] {
+    private func viewModels(for profiles: [NSManagedObject]) -> [ProfileCellViewModel] {
         var viewModels = [ProfileCellViewModel]()
-        profiles.forEach({ viewModels.append(ProfileCellViewModel(profile: $0)) })
+        profiles.forEach({ viewModels.append(ProfileCellViewModel(profile: $0 as! CDProfile )) })
         
         return viewModels
     }
